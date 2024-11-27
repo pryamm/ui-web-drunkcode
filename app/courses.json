@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Back-End Beginner",
+    "tagline": "Fundamentals of Server-Side Development",
+    "audience": "Pemula yang ingin memahami dasar-dasar pengembangan server-side.",
+    "materials": [
+      "Dasar REST API",
+      "Node.js",
+      "Database SQL & NoSQL",
+      "Basic Authentication"
+    ]
+  },
+  {
+    "title": "Back-End Intermediate",
+    "tagline": "Master Advanced Server-Side Skills",
+    "audience": "Developer dengan pengalaman dasar yang ingin meningkatkan kemampuan server-side.",
+    "materials": [
+      "Penerapan Mikroservis",
+      "Advanced Authentication dan OAuth",
+      "Performance Optimization",
+      "Docker dan CI/CD"
+    ]
+  },
+  {
+    "title": "Front-End Beginner",
+    "tagline": "Build Interactive Web Interfaces",
+    "audience": "Pemula tanpa pengalaman coding, mahasiswa, atau hobiis yang ingin belajar front-end.",
+    "materials": [
+      "HTML, CSS, dan JavaScript",
+      "Dasar Framework React.js",
+      "Responsive Design dengan Flexbox & Grid",
+      "Konsumsi API dengan Fetch dan Axios"
+    ]
+  },
+  {
+    "title": "Front-End Intermediate",
+    "tagline": "Enhance Your Front-End Development Skills",
+    "audience": "Developer yang sudah memahami dasar front-end dan ingin memperdalam teknologi front-end modern.",
+    "materials": [
+      "State Management dengan Redux atau Context API",
+      "Performance Optimization",
+      "Dynamic Routing dengan React Router",
+      "Testing dengan Jest dan React Testing Library"
+    ]
+  },
+  {
+    "title": "Mobile Development (React Native)",
+    "tagline": "Build Cross-Platform Apps for Android & iOS",
+    "audience": "Pemula yang ingin membangun aplikasi mobile lintas platform menggunakan React Native.",
+    "materials": [
+      "Pengenalan React Native",
+      "Membuat UI Interaktif dengan React Native Components",
+      "State Management dengan Redux atau Context",
+      "Deploy ke Play Store & App Store"
+    ]
+  }
+]

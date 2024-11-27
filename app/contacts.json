@@ -1,0 +1,17 @@
+[
+  {
+    "href": "https://www.instagram.com/drunkcode.id",
+    "icon": "FaInstagram",
+    "backgroundColor": "bg-instagram dark:bg-instagram"
+  },
+  {
+    "href": "https://www.linkedin.com/in/drunkcode.id",
+    "icon": "FaLinkedin",
+    "backgroundColor": "bg-linkedin dark:bg-linkedin"
+  },
+  {
+    "href": "https://wa.me/089699011820?text=%22hi%22",
+    "icon": "FaWhatsapp",
+    "backgroundColor": "bg-whatsapp dark:bg-whatsapp"
+  }
+]

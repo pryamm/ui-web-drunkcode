@@ -1,101 +1,85 @@
-import Image from "next/image";
+"use client";
+
+import courses from "./courses.json";
+import contacts from "./contacts.json";
+import AboutUsGrid from "@/components/grid/about-us.grid";
+import ContactGrid from "@/components/grid/contact.grid";
+import CourseOptionGrid from "@/components/grid/course-option.grid";
+import WhoShouldJoinUsGrid from "@/components/grid/who-should-join-us.grid";
+import WhyChooseUsGrid from "@/components/grid/why-choose-us.grid";
+import { cn } from "@/libs/utils";
+import { Layout, Responsive, WidthProvider } from "react-grid-layout";
+import SocialMediaGrid from "@/components/grid/social-media";
+const ResponsiveGridLayout = WidthProvider(Responsive);
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const layout: Layout[] = [
+    { i: "about", x: 0, y: 0, w: 4, h: 2 },
+    { i: "who-should-join-us", x: 4, y: 1, w: 2, h: 2 },
+    { i: "why-choose-us", x: 6, y: 1, w: 2, h: 4 },
+    { i: "contact", x: 2, y: 2, w: 2, h: 2 },
+    { i: "community", x: 2, y: 4, w: 2, h: 2 },
+    ...contacts.map((_, index) => ({
+      i: `contact-${index}`,
+      x: index % 2, // Alternates between 0 and 1 for two columns
+      y: Math.floor(index / 2), // Moves to the next row after every 2 items
+      w: 1,
+      h: 1,
+    })),
+    ...courses.map((_, index) => ({
+      i: `course-${index}`,
+      x: (index % 2) * 2,
+      y: Math.floor(index / 2) * 2 + 6,
+      w: 2,
+      h: 2,
+    })),
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const responsiveProps = {
+    layouts: { lg: layout, md: layout },
+    breakpoints: { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 },
+    cols: { lg: 8, md: 6, sm: 4, xs: 2, xxs: 2 },
+    // isBounded: true,
+    rowHeight: 150,
+    useCSSTransforms: false,
+  };
+
+  return (
+    <div className='p-4'>
+      <ResponsiveGridLayout
+        className={cn(
+          "mx-auto max-w-[1200px] max-lg:max-w-[800px] max-md:max-w-[375px] max-sm:max-w-[320px]",
+          "translate-y-0 opacity-100",
+          "transition-[opacity,_transform] duration-700"
+        )}
+        {...responsiveProps}
+      >
+        <div key='about'>
+          <AboutUsGrid />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div key='who-should-join-us'>
+          <WhoShouldJoinUsGrid />
+        </div>
+        <div key='why-choose-us'>
+          <WhyChooseUsGrid />
+        </div>
+        <div key='contact'>
+          <ContactGrid />
+        </div>
+        {contacts.map((contact, index) => (
+          <div key={`contact-${index}`}>
+            <SocialMediaGrid key={index} {...contact} />
+          </div>
+        ))}
+        {/* <div key='community'>
+          <AboutUsGrid />
+        </div> */}
+        {courses.map((course, index) => (
+          <div key={`course-${index}`}>
+            <CourseOptionGrid key={index} {...course} />
+          </div>
+        ))}
+      </ResponsiveGridLayout>
     </div>
   );
 }

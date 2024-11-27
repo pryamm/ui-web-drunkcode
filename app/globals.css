@@ -2,20 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.react-grid-layout {
+  @apply relative transition-[height] duration-200 ease-in-out;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.react-grid-item {
+  @apply transition-[left,_top,_width,_height] delay-0 duration-500 ease-in-out;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.react-grid-item img {
+  @apply pointer-events-none select-none;
+}
+
+.react-grid-item.resizing {
+  @apply z-[1] transition-none will-change-[width,_height];
+}
+
+.react-grid-item.react-draggable-dragging {
+  @apply z-[3] transition-none will-change-transform;
+}
+
+.react-grid-item.dropping {
+  @apply invisible;
+}
+
+.react-grid-item.react-grid-placeholder {
+  @apply z-[2] select-none rounded-3xl bg-black opacity-5 duration-100;
+}
+
+html.dark .react-grid-item.react-grid-placeholder {
+  @apply bg-white opacity-5;
 }
