@@ -23,7 +23,7 @@ export default function WhyChooseUsGrid() {
       </ul>
 
       {/* Tagline */}
-      <p className='text-center italic'>"Your Success, Our Priority"</p>
+      <p className='text-center italic'>Your Success, Our Priority</p>
     </Card>
   );
 }

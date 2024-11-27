@@ -22,7 +22,7 @@ export default function ContactGrid() {
       </ul>
 
       {/* Tagline */}
-      <p className='text-center italic'>"We’re Here to Help!"</p>
+      <p className='text-center italic'>We’re Here to Help!</p>
     </Card>
   );
 }
